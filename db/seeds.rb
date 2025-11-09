@@ -1,9 +1,79 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# db/seeds.rb
+
+# 既存レシピをクリア（開発環境のみ推奨）
+Recipe.delete_all
+
+recipes = [
+  {
+    title: "ふわふわ卵のオムライス",
+    description: "定番のオムライスをおうち向けに再現。ケチャップライスにバターを加えて風味アップ。",
+    ingredients: <<~TEXT,
+      ご飯 200g
+      鶏もも肉 80g
+      玉ねぎ 1/4個
+      卵 2個
+      牛乳 大さじ1
+      バター 10g
+      ケチャップ 大さじ2
+      塩・胡椒 少々
+    TEXT
+    instructions: <<~TEXT,
+      1. 玉ねぎと鶏肉を小さめに切る。卵は牛乳と一緒に溶いておく。
+      2. フライパンにバター半量を溶かし、玉ねぎと鶏肉を炒める。
+      3. ご飯とケチャップを加えて炒め、塩・胡椒で味を整える。
+      4. 皿にライスを盛り、残りのバターを溶かしたフライパンに卵液を流し半熟状に焼く。
+      5. ライスの上に卵をのせ、ケチャップをかけて完成。
+    TEXT
+    cook_time_minutes: 20,
+    notes: "卵は火を通しすぎないように注意。バターの香りでお店風に仕上がる。"
+  },
+  {
+    title: "10分で完成！トマトとモッツァレラの冷製パスタ",
+    description: "暑い日にぴったり。市販のトマトジュースを使って簡単に作れる冷製パスタ。",
+    ingredients: <<~TEXT,
+      スパゲッティ 80g
+      トマトジュース（無塩）150ml
+      オリーブオイル 大さじ1
+      にんにく 1/2片（みじん切り）
+      モッツァレラチーズ 50g
+      ミニトマト 4個
+      バジル 適量
+      塩・胡椒 少々
+    TEXT
+    instructions: <<~TEXT,
+      1. パスタを表示時間より1分長く茹で、冷水で冷やす。
+      2. ボウルにトマトジュース、オリーブオイル、にんにく、塩胡椒を入れて混ぜる。
+      3. 冷やしたパスタを加えて和え、半分に切ったミニトマトとちぎったモッツァレラを加える。
+      4. 器に盛り、バジルを飾って完成。
+    TEXT
+    cook_time_minutes: 10,
+    notes: "モッツァレラは常温に戻しておくと混ざりやすい。にんにくはチューブでもOK。"
+  },
+  {
+    title: "作り置きに便利！ごぼうの甘辛きんぴら",
+    description: "常備菜の定番。ごま油の香りと甘辛い味付けでご飯が進む一品。",
+    ingredients: <<~TEXT,
+      ごぼう 1本
+      にんじん 1/3本
+      ごま油 小さじ2
+      砂糖 小さじ2
+      みりん 大さじ1
+      醤油 大さじ1.5
+      白ごま 適量
+    TEXT
+    instructions: <<~TEXT,
+      1. ごぼうはささがきにして水にさらす。にんじんは細切りにする。
+      2. フライパンでごま油を熱し、ごぼうとにんじんを炒める。
+      3. 砂糖、みりん、醤油を加えて汁気がなくなるまで炒める。
+      4. 火を止めて白ごまをふり、混ぜ合わせる。
+    TEXT
+    cook_time_minutes: 15,
+    notes: "お弁当用にも最適。七味唐辛子を加えてピリ辛にしてもおいしい。"
+  }
+]
+
+recipes.each do |attributes|
+  Recipe.create!(attributes)
+end
+
+puts "Seeded #{Recipe.count} recipes."

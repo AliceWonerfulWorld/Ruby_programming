@@ -1,2 +1,5 @@
-<h1>Recipes#new</h1>
-<p>Find me in app/views/recipes/new.html.erb</p>
+<h1>レシピを新規登録</h1>
+
+<%= render "form", recipe: @recipe %>
+
+<p><%= link_to "一覧に戻る", recipes_path %></p>

@@ -1,0 +1,39 @@
+<div class="card">
+  <%= form_with(model: recipe, local: true) do |form| %>
+    <% if recipe.errors.any? %>
+      <div class="form-errors">
+        <h2><%= pluralize(recipe.errors.count, "件のエラー") %>があります。</h2>
+        <ul>
+          <% recipe.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <div>
+      <%= form.label :title, "タイトル" %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div>
+      <%= form.label :instructions, "作り方" %>
+      <%= form.text_area :instructions %>
+    </div>
+
+    <div>
+      <%= form.label :cook_time_minutes, "所要時間（分）" %>
+      <%= form.number_field :cook_time_minutes %>
+    </div>
+
+    <div>
+      <%= form.label :notes, "メモ" %>
+      <%= form.text_area :notes %>
+    </div>
+
+    <div>
+     <%= form.submit %>
+    </div>
+  <% end %>
+</div>

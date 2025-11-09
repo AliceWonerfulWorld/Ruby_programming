@@ -24,6 +24,28 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="site-title"><%= link_to "CookLog", root_path rescue "CookLog" %></h1>
+        <nav class="site-nav">
+          <%= link_to "レシピ一覧", recipes_path %>
+          <%= link_to "新規作成", new_recipe_path %>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <% flash.each do |key, message| %>
+        <div class="flash flash-<%= key %>"><%= message %></div>
+      <% end %>
+
+      <%= yield %>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>&copy; <%= Time.current.year %> CookLog</small>
+      </div>
+    </footer>
   </body>
 </html>

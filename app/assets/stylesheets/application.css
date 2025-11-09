@@ -1,10 +1,283 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+.flash {
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 4px;
+  }
+  
+  .flash-notice {
+    background-color: #e7f7ed;
+    color: #1b5e20;
+    border: 1px solid #b2dfdb;
+  }
+  
+  .flash-alert {
+    background-color: #fdecea;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+  }
+  
+  th,
+  td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  form div {
+    margin-bottom: 12px;
+  }
+  
+  form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  form input[type="text"],
+  form textarea,
+  form input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+  }
+  
+  form input[type="submit"] {
+    padding: 10px 16px;
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #0d47a1;
+  }
+  
+  .form-errors {
+    border: 1px solid #c62828;
+    background-color: #fdecea;
+    color: #c62828;
+    padding: 12px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+  }
+  
+  .form-errors ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  :root {
+    --bg-main: #f3f5f9;
+    --card-bg: #ffffff;
+    --primary: #ff7043;
+    --primary-dark: #f4511e;
+    --accent: #42a5f5;
+    --text-main: #1a202c;
+    --muted: #718096;
+    font-family: "Helvetica Neue", "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.6;
+  }
+  
+  body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    margin: 0;
+  }
+  
+  a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--primary-dark);
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 20px;
+  }
+  
+  .site-header,
+  .site-footer {
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+  }
+  
+  .site-title {
+    margin: 0;
+    font-size: 1.6rem;
+  }
+  
+  .site-title a {
+    color: var(--primary-dark);
+    font-weight: 700;
+  }
+  
+  .site-nav a {
+    margin-left: 16px;
+    font-weight: 500;
+  }
+  
+  main {
+    min-height: 70vh;
+  }
+  
+  .flash {
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  
+  .flash-notice {
+    background: #e3fcec;
+    color: #255d3e;
+    border: 1px solid #9ae6b4;
+  }
+  
+  .flash-alert {
+    background: #fdeaea;
+    color: #7b2d2d;
+    border: 1px solid #feb2b2;
+  }
+  
+  .card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+  
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  
+  .recipe-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+    padding: 24px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  
+  .recipe-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 30px rgba(15, 23, 42, 0.18);
+  }
+  
+  .recipe-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-align: center;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  
+  .btn-primary {
+    background: var(--primary);
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background: var(--primary-dark);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  
+  .btn-secondary {
+    background: #e2e8f0;
+    color: #1a202c;
+  }
+  
+  .btn-secondary:hover {
+    background: #cbd5e1;
+  }
+  
+  .btn-danger {
+    background: #ef4444;
+    color: #fff;
+  }
+  
+  .btn-danger:hover {
+    background: #dc2626;
+  }
+  
+  form div {
+    margin-bottom: 18px;
+  }
+  
+  form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  
+  form input[type="text"],
+  form textarea,
+  form input[type="number"] {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #d6d6d6;
+    border-radius: 10px;
+    background: #f8fafc;
+    font-size: 1rem;
+  }
+  
+  form input[type="text"]:focus,
+  form textarea:focus,
+  form input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(66, 165, 245, 0.25);
+    background: #ffffff;
+  }
+  
+  form input[type="submit"] {
+    padding: 12px 28px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 12px 24px rgba(66, 165, 245, 0.3);
+  }
+  
+  form input[type="submit"]:hover {
+    background: #1e88e5;
+  }
+  
+  .form-errors {
+    border: 1px solid #dc2626;
+    background: rgba(239, 68, 68, 0.12);
+    color: #991b1b;
+    padding: 16px;
+    border-radius: 12px;
+  }
+  
+  .form-errors h2 {
+    margin-top: 0;
+  }

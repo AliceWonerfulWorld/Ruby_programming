@@ -1,2 +1,26 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<section class="card">
+  <header class="recipe-meta">
+    <span><%= @recipe.cook_time_minutes.present? ? "#{@recipe.cook_time_minutes}分" : "所要時間: 未設定" %></span>
+    <span>作成日 <%= l @recipe.created_at.to_date %></span>
+  </header>
+
+  <h1><%= @recipe.title %></h1>
+
+  <h2>説明</h2>
+  <p><%= simple_format(@recipe.description) %></p>
+
+  <h2>材料</h2>
+  <p><%= simple_format(@recipe.ingredients) %></p>
+
+  <h2>作り方</h2>
+  <p><%= simple_format(@recipe.instructions) %></p>
+
+  <h2>メモ</h2>
+  <p><%= @recipe.notes.present? ? simple_format(@recipe.notes) : "なし" %></p>
+</section>
+
+<p class="actions">
+  <%= link_to "編集する", edit_recipe_path(@recipe), class: "btn btn-secondary" %>
+  <%= link_to "削除する", @recipe, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+  <%= link_to "一覧に戻る", recipes_path, class: "btn" %>
+</p>
